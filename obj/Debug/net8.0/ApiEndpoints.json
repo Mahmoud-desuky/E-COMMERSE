@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "Back.Controllers.ProductController",
+    "Method": "GetById",
+    "RelativePath": "api/Product/GetById/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
