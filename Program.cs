@@ -11,7 +11,7 @@ builder.Services.AddTransient<IProduct, ProductLogic>();
 
 
 
-// Add Scope of Genaric Repo
+// Add Scope of GenaricRepository
 builder.Services.AddScoped(typeof(IGenaricRepository<>),typeof(GenaricRepository<>));
 
 

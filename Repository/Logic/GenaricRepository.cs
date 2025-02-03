@@ -1,10 +1,12 @@
-﻿using Back.Infrastracture.Data;
+﻿using System.Linq.Expressions;
+using Back.Core.Entities;
+using Back.Infrastracture.Data;
 using Back.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace Back.Repository.Logic
 {
-    public class GenaricRepository<T> : IGenaricRepository<T> where T : class
+    public class GenaricRepository<T> : IGenaricRepository<T> where T : BaseEntity
     {
         private readonly StoreContext _context;
         private DbSet<T> _dbSet;
@@ -13,28 +15,44 @@ namespace Back.Repository.Logic
             _context = context;
             _dbSet = context.Set<T>();
         }
-        public async Task<IReadOnlyList<T>> GetAll()
-        {
-            try
+          public async Task<T> GetByIdAsync(int id)
             {
-                return await _dbSet.ToListAsync();
+                 return await _dbSet.FindAsync(id);
+            }
+        public virtual IQueryable<T> GetAllAsync()
+            {
+                return _dbSet.AsQueryable<T>();
+            }
 
-            }catch (Exception ex)
-            {
-                throw;
-            }
-        }
-        public async Task<T> GetById(long Id)
+        public IQueryable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null
+          , string IncludeProperties = "")
         {
-            try
+            IQueryable<T> query = _dbSet;
+            if (filter != null)
             {
-                var Find = _dbSet.FindAsync(Id);
-                return await Find;
+                query = query.AsNoTracking().Where(filter);
             }
-            catch (Exception ex)
+            foreach (var includeProperty in IncludeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
-                throw;
+                query = query.Include(includeProperty);
             }
+            if (orderBy != null)
+            {
+                return orderBy(query);
+            }
+            return query;
+        }
+        public async Task<T> GetEntityWithSpec(ISpacification<T> spec)
+        {
+            return await ApplySpecification(spec).FirstOrDefaultAsync();
+        }
+        public async Task<IReadOnlyList<T>> ListAsync(ISpacification<T> spec)
+        {
+            return await ApplySpecification(spec).ToListAsync();
+        }
+        private IQueryable<T>ApplySpecification(ISpacification<T> spec)
+        {
+            return SpacificationEvaluatar<T>.GetQuery(_dbSet.AsQueryable(), spec);
         }
     }
 }

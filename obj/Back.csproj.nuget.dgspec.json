@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Github Projects\\SideProject\\EC Back\\Back\\Back.csproj": {}
+    "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {}
   },
   "projects": {
-    "E:\\Github Projects\\SideProject\\EC Back\\Back\\Back.csproj": {
+    "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Github Projects\\SideProject\\EC Back\\Back\\Back.csproj",
+        "projectUniqueName": "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
         "projectName": "Back",
-        "projectPath": "E:\\Github Projects\\SideProject\\EC Back\\Back\\Back.csproj",
-        "packagesPath": "C:\\Users\\mahmoud\\.nuget\\packages\\",
-        "outputPath": "E:\\Github Projects\\SideProject\\EC Back\\Back\\obj\\",
+        "projectPath": "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
+        "packagesPath": "C:\\Users\\D-1\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\EEcommerce\\E-COMMERSE\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "C:\\Users\\mahmoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\D-1\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -80,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

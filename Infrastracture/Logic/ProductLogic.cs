@@ -1,6 +1,8 @@
-﻿using Back.Core.Entities;
+﻿using Back.API.DTOs;
+using Back.Core.Entities;
 using Back.Infrastracture.Interface;
 using Back.Repository.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace Back.Infrastracture.Logic
 {
@@ -13,16 +15,37 @@ namespace Back.Infrastracture.Logic
             _product = product;
         }
 
-        async Task<Product> IProduct.GetByID(long Id)
+        public async Task<List<ProductDTO>> GetAll()
         {
-            try
-            {
-                return await _product.GetById(Id);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+           var products= await _product.GetAllAsync().Include(x=>x.ProductType) 
+                 .Select(x=>new ProductDTO{
+                    Id=x.Id,
+                    Name=x.Name,
+                    Description=x.Description,
+                    Price=x.Price,
+                    PictureUrl=x.PictureUrl,
+                    ProductType=x.ProductType.Name
+                }).ToListAsync();
+           return products;
         }
+
+        public async Task<ProductDTO> GetById(int id)
+        {
+             var findProduct= await _product.GetByIdAsync(id);
+             if(findProduct==null)
+             {
+                 throw new  Exception("Product Not Found");
+             }
+             return new ProductDTO{
+                Id=findProduct.Id,
+                Name=findProduct.Name,
+                Description=findProduct.Description,
+                Price=findProduct.Price,
+                PictureUrl=findProduct.PictureUrl,
+                ProductType=findProduct.ProductType.Name
+             };
+        }
+
+      
     }
 }
