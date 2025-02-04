@@ -1,3 +1,4 @@
+using Back.API.Errors;
 using Back.Infrastracture.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,7 @@ namespace Back.API.Controllers
             var thing = _context.Products.Find(42);
             if(thing == null)
             {
-                return NotFound();
+                return NotFound(new ApiResponse(404));
             }
             return Ok();
         }
@@ -26,17 +27,17 @@ namespace Back.API.Controllers
         {
             var thing = _context.Products.Find(42);
             var thingToReturn = thing.ToString();
-            return Ok();
+            return Ok(new ApiResponse(500));
         }
         [HttpGet("bad-request")]
         public ActionResult GetBadRequest()
         {
-            return BadRequest(StatusCodes.Status400BadRequest);
+            return BadRequest(new ApiResponse(400));
         }
         [HttpGet("bad-request/{id}")]
         public ActionResult GetNotFoundRequest(int id)
         {
-            return Ok();
+            return Ok(new ApiResponse(400));
         }
     
     }
