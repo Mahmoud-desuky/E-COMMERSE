@@ -271,3 +271,4 @@ C:\Projects\EEcommerce\E-COMMERSE\obj\Debug\net8.0\refint\Back.dll
 C:\Projects\EEcommerce\E-COMMERSE\obj\Debug\net8.0\Back.pdb
 C:\Projects\EEcommerce\E-COMMERSE\obj\Debug\net8.0\Back.genruntimeconfig.cache
 C:\Projects\EEcommerce\E-COMMERSE\obj\Debug\net8.0\ref\Back.dll
+C:\Projects\EEcommerce\E-COMMERSE\bin\Debug\net8.0\AutoMapper.dll

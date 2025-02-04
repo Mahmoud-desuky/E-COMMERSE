@@ -1,15 +1,9 @@
-﻿using Back.Core.Entities;
-using Back.Infrastracture.Interface;
-using Back.Repository.Interface;
-using Microsoft.AspNetCore.Http;
+﻿using Back.Infrastracture.Interface;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Back.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductController : BaseApiController
     {
         private readonly IProduct _product;
 
