@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {}
+    "c:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {
+    "c:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
+        "projectUniqueName": "c:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
         "projectName": "Back",
-        "projectPath": "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
+        "projectPath": "c:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
         "packagesPath": "C:\\Users\\D-1\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\EEcommerce\\E-COMMERSE\\obj\\",
+        "outputPath": "c:\\Projects\\EEcommerce\\E-COMMERSE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\D-1\\AppData\\Roaming\\NuGet\\NuGet.Config"
