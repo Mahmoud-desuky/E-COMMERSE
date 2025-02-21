@@ -8,8 +8,9 @@ namespace Back.Repository.Interface
 
         Task<T> GetByIdAsync(int id);
         IQueryable<T> GetAllAsync();
-       IQueryable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string IncludeProperties = "");
-       Task<T>GetEntityWithSpec(ISpacification<T> spec);
+        IQueryable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string IncludeProperties = "");
+        Task<T>GetEntityWithSpec(ISpacification<T> spec);
         Task<IReadOnlyList<T>> ListAsync(ISpacification<T> spec);
+        
     }
 }

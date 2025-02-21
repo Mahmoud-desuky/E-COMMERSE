@@ -11,12 +11,11 @@ namespace Back.API.Middleware
         private readonly IHostEnvironment _env;
         private readonly RequestDelegate _next;
 
-        public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, IHostEnvironment env)
+        public ExceptionMiddleware(RequestDelegate next,ILogger<ExceptionMiddleware>logger,IHostEnvironment env)
         {
             _logger = logger;
             _env = env;
             _next = next;
-            
         }
 
         public async Task InvokeAsync(HttpContext context)

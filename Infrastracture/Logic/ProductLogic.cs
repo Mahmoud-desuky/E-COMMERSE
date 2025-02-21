@@ -1,4 +1,5 @@
-﻿using Back.API.DTOs;
+﻿using AutoMapper;
+using Back.API.DTOs;
 using Back.Core.Entities;
 using Back.Infrastracture.Interface;
 using Back.Repository.Interface;
@@ -9,10 +10,12 @@ namespace Back.Infrastracture.Logic
     public class ProductLogic : IProduct
     {
         private readonly IGenaricRepository<Product> _product;
+        private readonly IMapper _mapper;
 
-        public ProductLogic(IGenaricRepository<Product>product)
+        public ProductLogic(IGenaricRepository<Product>product,IMapper mapper)
         {
             _product = product;
+            _mapper = mapper;
         }
 
         public async Task<List<ProductDTO>> GetAll()
@@ -36,14 +39,7 @@ namespace Back.Infrastracture.Logic
              {
                  throw new  Exception("Product Not Found");
              }
-             return new ProductDTO{
-                Id=findProduct.Id,
-                Name=findProduct.Name,
-                Description=findProduct.Description,
-                Price=findProduct.Price,
-                PictureUrl=findProduct.PictureUrl,
-                ProductType=findProduct.ProductType.Name
-             };
+             return _mapper.Map<Product,ProductDTO>(findProduct);
         }
 
       
