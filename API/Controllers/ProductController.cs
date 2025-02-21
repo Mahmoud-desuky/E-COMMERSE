@@ -6,7 +6,6 @@ namespace Back.API.Controllers
     public class ProductController : BaseApiController
     {
         private readonly IProduct _product;
-
         public ProductController(IProduct product)
         {
             _product = product;
