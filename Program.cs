@@ -8,10 +8,13 @@ using Back.Repository.Logic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IProduct, ProductLogic>();
+builder.Services.AddTransient<IBasketRepository, BasketRepository>();
+
 
 
 
@@ -22,6 +25,11 @@ builder.Services.AddScoped(typeof(IGenaricRepository<>),typeof(GenaricRepository
 // Add services to the container.
 builder.Services.AddDbContext<StoreContext>(x=>
  x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(c=>{
+     var configuration=ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"),true);
+   return ConnectionMultiplexer.Connect(configuration);
+   });
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

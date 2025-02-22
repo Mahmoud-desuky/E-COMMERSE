@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {}
+    "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {}
   },
   "projects": {
-    "c:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {
+    "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
+        "projectUniqueName": "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
         "projectName": "Back",
-        "projectPath": "c:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
+        "projectPath": "C:\\Projects\\EEcommerce\\E-COMMERSE\\Back.csproj",
         "packagesPath": "C:\\Users\\D-1\\.nuget\\packages\\",
-        "outputPath": "c:\\Projects\\EEcommerce\\E-COMMERSE\\obj\\",
+        "outputPath": "C:\\Projects\\EEcommerce\\E-COMMERSE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\D-1\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -56,6 +56,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.24, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
