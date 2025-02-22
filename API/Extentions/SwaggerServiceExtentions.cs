@@ -12,5 +12,10 @@ namespace Back.API.Extections
             });
             return services ;
         }
+    
+    public static IApplicationBuilder UserSwaggerDocumentation(this IApplicationBuilder application)
+        {
+            return application;
+        }
     }
 }
