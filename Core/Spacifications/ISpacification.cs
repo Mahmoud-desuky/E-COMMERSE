@@ -8,9 +8,9 @@ namespace Back.Core.Entities
     List<Expression<Func<T, object>>> Includes { get; }
     Expression<Func<T,object>>OrderBy{get;}
     Expression<Func<T,object>>OrderByDesc{get;}
-   int Take{get;}
-   int Skip { get; }
-   bool IsPageEnable{get;}
+    int Take{get;}
+    int Skip { get; }
+    bool IsPageEnable{get;}
    
     
   }

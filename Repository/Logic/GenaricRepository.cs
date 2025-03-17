@@ -54,5 +54,19 @@ namespace Back.Repository.Logic
         {
             return SpacificationEvaluatar<T>.GetQuery(_dbSet.AsQueryable(), spec);
         }
+
+        public async Task<bool> Delete(int id)
+        {
+            var find=_dbSet.FirstOrDefault(t=>t.Id==id);
+            if(find==null)
+                return false;
+            _dbSet.Remove(find);
+            return true;
+        }
+
+        public Task<T> Update(T entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

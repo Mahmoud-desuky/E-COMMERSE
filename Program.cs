@@ -3,12 +3,12 @@ using Back.API.Middleware;
 using Back.Infrastracture.Data;
 using Back.Infrastracture.Interface;
 using Back.Infrastracture.Logic;
+using Back.Infrastructure.Identity;
 using Back.Repository.Interface;
 using Back.Repository.Logic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,10 +26,9 @@ builder.Services.AddScoped(typeof(IGenaricRepository<>),typeof(GenaricRepository
 builder.Services.AddDbContext<StoreContext>(x=>
  x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddSingleton<IConnectionMultiplexer>(c=>{
-     var configuration=ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"),true);
-   return ConnectionMultiplexer.Connect(configuration);
-   });
+builder.Services.AddDbContext<ApplicationIdentityDbContext>(x=>
+   x.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
+   
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

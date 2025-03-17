@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Back.API.Controllers
 {
+
     public class BasketController:BaseApiController
     {
         private readonly IBasketRepository _basketRepository;
@@ -13,21 +14,21 @@ namespace Back.API.Controllers
         {
             _basketRepository=basketRepository;
         }
-        [HttpGet("id")]
-        public async Task<ActionResult<CustomerBasket>>GetById(string id)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
             var basket=await _basketRepository.GetBasketAsync(id);
             return Ok(basket??new CustomerBasket(id));
         }
         [HttpPut]
-        public async Task<ActionResult<CustomerBasket>>Update(CustomerBasket basket)
+        public async Task<IActionResult>Update(CustomerBasket basket)
         {
             var updateBasket=await _basketRepository.UpdateBasketAsync(basket);
 
             return Ok(updateBasket);
         }
-        [HttpDelete("id")]
-        public async Task<IActionResult>Delete(string id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult>Delete(int id)
         {
             return Ok(_basketRepository.DeleteBasketAsync(id));
         }
