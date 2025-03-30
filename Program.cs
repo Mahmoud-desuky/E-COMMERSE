@@ -6,6 +6,7 @@ using Back.Infrastracture.Logic;
 using Back.Infrastructure.Identity;
 using Back.Repository.Interface;
 using Back.Repository.Logic;
+using E_COMMERSE.API.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -66,6 +67,7 @@ if (app.Environment.IsDevelopment())
 {
    app.UseDeveloperExceptionPage();
 }
+builder.Services.AddIdentityServices(builder.Configuration);
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -74,6 +76,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
