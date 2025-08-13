@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace E_COMMERSE.API.Exceptions
+namespace Back.API.Exceptions
 {
     public class BusinessException : Exception
     {

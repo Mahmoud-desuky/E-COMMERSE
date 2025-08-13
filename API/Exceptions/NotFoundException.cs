@@ -1,6 +1,6 @@
 using System;
 
-namespace E_COMMERSE.API.Exceptions
+namespace Back.API.Exceptions
 {
     public class NotFoundException:Exception
     {

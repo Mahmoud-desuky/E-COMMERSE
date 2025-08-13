@@ -1,4 +1,4 @@
-namespace E_COMMERSE.API.Exceptions
+namespace Back.API.Exceptions
 {
     public class UnAuthorizedException : Exception
     {

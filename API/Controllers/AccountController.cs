@@ -1,7 +1,7 @@
 using Back.API.Controllers;
 using Back.API.Errors;
 using Back.Core.Entities.Identity;
-using E_COMMERSE.API.DTOs;
+using Back.API.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +23,7 @@ namespace E_COMMERSE.API.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDto)
         {
-            var user = await _userManager.FindByEmailAsync(loginDto.Username);
+            var user = await _userManager.FindByEmailAsync(loginDto.UserName);
             if (user == null) 
                 return Unauthorized(new ApiResponse(401));
             
@@ -48,7 +48,7 @@ namespace E_COMMERSE.API.Controllers
             var user = new User
             {
                 Email = registerDto.Email,
-                UserName = registerDto.Username
+                UserName = registerDto.UserName
            };
             
             var result = await _userManager.CreateAsync(user, registerDto.Password);
