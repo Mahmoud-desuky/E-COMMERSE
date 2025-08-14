@@ -10,9 +10,6 @@ using Back.Common.Interface;
 using Back.Common.Logic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using StackExchange.Redis;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IBasketRepository, BasketRepository>();
