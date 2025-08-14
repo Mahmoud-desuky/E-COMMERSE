@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Back.Core.Entities;
 
-namespace Back.Repository.Interface
+namespace Back.Infrastracture.Interface
 {
     public interface IGenaricRepository<T> where T : BaseEntity
     {
@@ -9,10 +9,10 @@ namespace Back.Repository.Interface
         Task<T> GetByIdAsync(int id);
         IQueryable<T> GetAllAsync();
         IQueryable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string IncludeProperties = "");
-        Task<T>GetEntityWithSpec(ISpacification<T> spec);
+        Task<T> GetEntityWithSpec(ISpacification<T> spec);
         Task<IReadOnlyList<T>> ListAsync(ISpacification<T> spec);
-        Task<bool>Delete(int id);
-        Task<T>Update(T entity);
+        Task<bool> Delete(int id);
+        Task<T> Update(T entity);
         
     }
 }

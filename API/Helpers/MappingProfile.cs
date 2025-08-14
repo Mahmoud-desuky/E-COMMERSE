@@ -1,5 +1,5 @@
 using AutoMapper;
-using Back.API.DTOs;
+using Back.Common.DTOs;
 using Back.Core.Entities;
 
 namespace Back.API.Helpers

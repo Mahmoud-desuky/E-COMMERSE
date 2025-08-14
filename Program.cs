@@ -1,19 +1,20 @@
 using System.Reflection;
+using Back.API.Extensions;
 using Back.API.Middleware;
+using Back.Core.Entities;
 using Back.Infrastracture.Data;
 using Back.Infrastracture.Interface;
 using Back.Infrastracture.Logic;
 using Back.Infrastructure.Identity;
-using Back.Repository.Interface;
-using Back.Repository.Logic;
-using E_COMMERSE.API.Extensions;
+using Back.Common.Interface;
+using Back.Common.Logic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddTransient<IProduct, ProductLogic>();
 builder.Services.AddTransient<IBasketRepository, BasketRepository>();
 
 
@@ -29,11 +30,18 @@ builder.Services.AddDbContext<StoreContext>(x=>
 
 builder.Services.AddDbContext<ApplicationIdentityDbContext>(x=>
    x.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
-   
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
+{
+   var Configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
+   return ConnectionMultiplexer.Connect(Configuration);
+});
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddIdentityServices(builder.Configuration);
 
 
  builder.Services.Configure<ApiBehaviorOptions>(options=>
@@ -60,14 +68,16 @@ builder.Services.AddSwaggerGen();
     });
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
    app.UseDeveloperExceptionPage();
 }
-builder.Services.AddIdentityServices(builder.Configuration);
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
 app.UseSwagger();
 app.UseSwaggerUI();

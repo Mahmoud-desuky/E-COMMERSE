@@ -1,6 +1,6 @@
 using Back.Core.Entities.Identity;
 
-namespace ECommerce.Repository.Interface
+namespace Back.Infrastracture.Interface
 {
     public interface ITokenService
     {

@@ -1,10 +1,10 @@
 ﻿using System.Linq.Expressions;
 using Back.Core.Entities;
 using Back.Infrastracture.Data;
-using Back.Repository.Interface;
+using Back.Infrastracture.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace Back.Repository.Logic
+namespace Back.Infrastracture.Logic
 {
     public class GenaricRepository<T> : IGenaricRepository<T> where T : BaseEntity
     {
@@ -68,5 +68,6 @@ namespace Back.Repository.Logic
         {
             throw new NotImplementedException();
         }
+
     }
 }

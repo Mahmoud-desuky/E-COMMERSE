@@ -2,7 +2,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Back.Core.Entities.Identity;
 using Back.Infrastructure.Identity;
-namespace E_COMMERSE.API.Extensions
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+namespace Back.API.Extensions
 {
     public static class IdentityServiceExtensions
     {
@@ -15,13 +18,13 @@ namespace E_COMMERSE.API.Extensions
             builder.AddEntityFrameworkStores<ApplicationIdentityDbContext>();
             builder.AddSignInManager<SignInManager<User>>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJWTBearer(options =>
+            .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"])),
-                    ValidIssure = config["Token:Issuer"],
+                    ValidIssuer = config["Token:Issuer"],
                     ValidateIssuer = true,
                 };
             });

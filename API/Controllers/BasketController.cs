@@ -1,34 +1,34 @@
 using Back.Core.Entities;
 using Back.Infrastracture.Interface;
+using Back.Common.Interface;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Back.API.Controllers
 {
-
-    public class BasketController:BaseApiController
+    public class BasketController : BaseApiController
     {
         private readonly IBasketRepository _basketRepository;
 
         public BasketController(IBasketRepository basketRepository)
         {
-            _basketRepository=basketRepository;
+            _basketRepository = basketRepository;
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(string id)
         {
-            var basket=await _basketRepository.GetBasketAsync(id);
-            return Ok(basket??new CustomerBasket(id));
+            var basket = await _basketRepository.GetBasketAsync(id);
+            return Ok(basket ?? new CustomerBasket(id));
         }
         [HttpPut]
-        public async Task<IActionResult>Update(CustomerBasket basket)
+        public async Task<IActionResult> Update(CustomerBasket basket)
         {
-            var updateBasket=await _basketRepository.UpdateBasketAsync(basket);
+            var updateBasket = await _basketRepository.UpdateBasketAsync(basket);
 
             return Ok(updateBasket);
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult>Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             return Ok(_basketRepository.DeleteBasketAsync(id));
         }

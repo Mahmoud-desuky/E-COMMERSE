@@ -1,9 +1,9 @@
 using Back.API.Controllers;
 using Back.API.Errors;
 using Back.Core.Entities.Identity;
-using Back.API.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Back.Common.DTOs;
 
 namespace E_COMMERSE.API.Controllers
 {

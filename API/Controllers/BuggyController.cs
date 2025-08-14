@@ -1,9 +1,10 @@
+using AutoMapper.Configuration.Annotations;
 using Back.API.Errors;
 using Back.Infrastracture.Data;
 using Microsoft.AspNetCore.Mvc;
 namespace Back.API.Controllers
 {
-    public class BuggyController:BaseApiController
+    public class BuggyController : BaseApiController
     {
         private readonly StoreContext _context;
 
@@ -14,8 +15,8 @@ namespace Back.API.Controllers
         [HttpGet("not-found")]
         public ActionResult GetNotFoundRequest()
         {
-            var thing=new Nullable<int>();// _context.Products.Find(42);
-            if(thing == null)
+            var thing = new Nullable<int>();// _context.Products.Find(42);
+            if (thing == null)
             {
                 return NotFound(new ApiResponse(404));
             }
@@ -38,6 +39,6 @@ namespace Back.API.Controllers
         {
             return Ok(new ApiResponse(400));
         }
-    
+
     }
 }

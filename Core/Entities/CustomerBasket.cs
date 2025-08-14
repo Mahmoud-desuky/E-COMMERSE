@@ -1,17 +1,17 @@
 namespace Back.Core.Entities
 {
-    public class CustomerBasket:BaseEntity
+    public class CustomerBasket
     {
         public CustomerBasket()
         {
             
         }
-        public CustomerBasket(int id)
+        public CustomerBasket(string id)
         {
             Id=id;
         }
+        public string Id { get; set; }
 
-        public int Id { get; set; }
         public string Code { get; set; }
         public  List<BasketItem> Items { get; set; }=new List<BasketItem>();
 
