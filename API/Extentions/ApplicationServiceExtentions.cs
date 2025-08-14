@@ -1,7 +1,8 @@
+using Back.Common.Interface;
+using Back.Common.Logic;
 using Back.Infrastracture.Interface;
 using Back.Infrastracture.Logic;
-using Back.Repository.Interface;
-using Back.Repository.Logic;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace Back.API.Extections
@@ -10,7 +11,6 @@ namespace Back.API.Extections
     {
         public static IServiceCollection AddApplicationService(this IServiceCollection services)
         {
-            services.AddScoped<IProduct,ProductLogic>();
             services.AddScoped<IBasketRepository,BasketRepository>();
             services.AddScoped(typeof(IGenaricRepository<>),typeof(GenaricRepository<>));
 

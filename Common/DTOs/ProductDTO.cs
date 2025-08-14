@@ -1,4 +1,4 @@
-namespace Back.API.DTOs
+namespace Back.Common.DTOs
 {
     public class ProductDTO
     {

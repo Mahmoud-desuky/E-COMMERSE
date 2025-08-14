@@ -283,3 +283,6 @@ C:\Projects\EEcommerce\E-COMMERSE\bin\Debug\net8.0\Microsoft.Extensions.WebEncod
 C:\Projects\EEcommerce\E-COMMERSE\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Projects\EEcommerce\E-COMMERSE\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 C:\Projects\EEcommerce\E-COMMERSE\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Projects\EEcommerce\E-COMMERSE\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Projects\EEcommerce\E-COMMERSE\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\Projects\EEcommerce\E-COMMERSE\bin\Debug\net8.0\StackExchange.Redis.dll

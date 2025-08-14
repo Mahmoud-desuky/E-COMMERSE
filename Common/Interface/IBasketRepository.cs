@@ -1,12 +1,13 @@
 using Back.Core.Entities;
 
-namespace Back.Infrastracture.Interface
+namespace Back.Common.Interface
 {
     public interface IBasketRepository
     {
-        Task<CustomerBasket> GetBasketAsync(int BasketId);
+        Task<CustomerBasket> GetBasketAsync(string BasketId);
         Task<CustomerBasket> UpdateBasketAsync(CustomerBasket basket);
-        Task<bool>DeleteBasketAsync(int BasketId);
+        Task<bool> DeleteBasketAsync(string BasketId);
 
     }
+
 }

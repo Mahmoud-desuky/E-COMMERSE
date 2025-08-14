@@ -2,10 +2,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Back.Core.Entities.Identity;
-using ECommerce.Repository.Interface;
+using Back.Infrastracture.Interface;
 using Microsoft.IdentityModel.Tokens;
 
-namespace E_COMMERSE.API.Logic
+namespace Back.Infrastracture.Logic
 {
     public class TokenService : ITokenService
     {

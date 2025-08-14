@@ -1,4 +1,4 @@
-namespace E_COMMERSE.API.DTOs
+namespace Back.Common.DTOs
 {
     public class UserDTO
     {
