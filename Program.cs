@@ -1,7 +1,6 @@
 using System.Reflection;
 using Back.API.Extensions;
 using Back.API.Middleware;
-using Back.Core.Entities;
 using Back.Infrastracture.Data;
 using Back.Infrastracture.Interface;
 using Back.Infrastracture.Logic;
@@ -10,11 +9,13 @@ using Back.Common.Interface;
 using Back.Common.Logic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Identity;
+using Back.Core.Entities.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IBasketRepository, BasketRepository>();
-
-
 
 
 // Add Scope of GenaricRepository
@@ -23,7 +24,9 @@ builder.Services.AddScoped(typeof(IGenaricRepository<>),typeof(GenaricRepository
 
 // Add services to the container.
 builder.Services.AddDbContext<StoreContext>(x=>
- x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Add Identity
 
 builder.Services.AddDbContext<ApplicationIdentityDbContext>(x=>
    x.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
@@ -33,6 +36,8 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
    var Configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
    return ConnectionMultiplexer.Connect(Configuration);
 });
+builder.Services.AddScoped<UserManager<User>>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

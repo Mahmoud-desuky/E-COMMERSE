@@ -2,7 +2,7 @@ using System;
 
 namespace Back.API.Exceptions
 {
-    public class NotFoundException:Exception
+    public class NotFoundException : Exception
     {
         public string MessageCode;
         public new string Message;

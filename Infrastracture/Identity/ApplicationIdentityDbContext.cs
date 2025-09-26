@@ -15,6 +15,7 @@ namespace Back.Infrastructure.Identity
         {
             base.OnModelCreating(builder);
         }
+        
 
     }
 }

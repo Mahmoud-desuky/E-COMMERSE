@@ -1,6 +1,7 @@
 using AutoMapper.Configuration.Annotations;
 using Back.API.Errors;
 using Back.Infrastracture.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace Back.API.Controllers
 {
@@ -12,6 +13,13 @@ namespace Back.API.Controllers
         {
             _context = context;
         }
+        [HttpGet("testauth")]
+        [Authorize]
+        public ActionResult<string> GetSecretText()
+        {
+            return Ok("Secret stuff");
+        }
+
         [HttpGet("not-found")]
         public ActionResult GetNotFoundRequest()
         {

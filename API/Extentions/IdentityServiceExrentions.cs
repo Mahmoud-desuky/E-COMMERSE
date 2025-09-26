@@ -1,4 +1,3 @@
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Back.Core.Entities.Identity;
 using Back.Infrastructure.Identity;
@@ -26,6 +25,7 @@ namespace Back.API.Extensions
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"])),
                     ValidIssuer = config["Token:Issuer"],
                     ValidateIssuer = true,
+                    ValidateAudience=false
                 };
             });
             return services; 

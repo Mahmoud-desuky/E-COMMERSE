@@ -13,7 +13,7 @@ namespace Back.API.Extections
         {
             services.AddScoped<IBasketRepository,BasketRepository>();
             services.AddScoped(typeof(IGenaricRepository<>),typeof(GenaricRepository<>));
-
+            
             services.Configure<ApiBehaviorOptions>(options=>
             {
                /* options.InvalidModelStateResponseFactory=actionContext =>

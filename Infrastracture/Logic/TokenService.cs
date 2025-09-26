@@ -15,7 +15,6 @@ namespace Back.Infrastracture.Logic
         {
             _config = config;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Token:Key"]));
-            
         }
         public string CreateteToken(User user)
         {
@@ -23,7 +22,7 @@ namespace Back.Infrastracture.Logic
             {
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(JwtRegisteredClaimNames.GivenName, user.UserName),
-                
+                new Claim(JwtRegisteredClaimNames.NameId,user.Id),
             };
 
             var credintionals = new SigningCredentials(_key,SecurityAlgorithms.HmacSha512Signature);
@@ -34,7 +33,7 @@ namespace Back.Infrastracture.Logic
                 Expires = DateTime.Now.AddDays(7),
                 SigningCredentials = credintionals,
                 Issuer = _config["Token:Issuer"],
-                Audience = _config["Token:Audience"]
+                Audience = _config["Token:Audience"],
             };
             var tokenHandler=new JwtSecurityTokenHandler();
 
