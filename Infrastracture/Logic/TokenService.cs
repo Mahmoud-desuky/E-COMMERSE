@@ -1,11 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Back.Core.Entities.Identity;
-using Back.Infrastracture.Interface;
+using ECommerse.Core.Entities.Identity;
+using ECommerse.Infrastracture.Interface;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Back.Infrastracture.Logic
+namespace ECommerse.Infrastracture.Logic
 {
     public class TokenService : ITokenService
     {
@@ -22,7 +22,7 @@ namespace Back.Infrastracture.Logic
             {
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(JwtRegisteredClaimNames.GivenName, user.UserName),
-                new Claim(JwtRegisteredClaimNames.NameId,user.Id),
+                new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
             };
 
             var credintionals = new SigningCredentials(_key,SecurityAlgorithms.HmacSha512Signature);

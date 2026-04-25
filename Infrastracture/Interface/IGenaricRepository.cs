@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
-using Back.Core.Entities;
+using ECommerse.Core.Entities;
 
-namespace Back.Infrastracture.Interface
+namespace ECommerse.Infrastracture.Interface
 {
     public interface IGenaricRepository<T> where T : BaseEntity
     {

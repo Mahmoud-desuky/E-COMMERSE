@@ -1,6 +1,6 @@
 
 
-namespace Back.Common.Interface
+namespace ECommerse.Common.Interface
 {
     public interface IProductService
     {

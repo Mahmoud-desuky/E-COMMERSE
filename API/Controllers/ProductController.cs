@@ -1,9 +1,9 @@
-﻿using Back.Core.Entities;
-using Back.Infrastracture.Interface;
+﻿using ECommerse.Core.Entities;
+using ECommerse.Infrastracture.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Back.API.Controllers
+namespace ECommerse.API.Controllers
 {
     public class ProductController : BaseApiController
     {

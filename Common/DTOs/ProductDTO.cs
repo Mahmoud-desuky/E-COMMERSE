@@ -1,4 +1,4 @@
-namespace Back.Common.DTOs
+namespace ECommerse.Common.DTOs
 {
     public class ProductDTO
     {

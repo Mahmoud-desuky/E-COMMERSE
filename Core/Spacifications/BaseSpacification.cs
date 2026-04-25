@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace Back.Core.Entities
+namespace ECommerse.Core.Entities
 {
   public class BaseSpacification<T> : ISpacification<T>
   {

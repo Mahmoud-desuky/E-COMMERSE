@@ -1,7 +1,7 @@
 using System;
-using Back.Core.Enums;
+using ECommerse.Core.Enums;
 
-namespace Back.API.Models
+namespace ECommerse.API.Models
 {
     public class BaseResponse<T>
     {

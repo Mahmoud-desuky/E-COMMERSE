@@ -1,6 +1,6 @@
-using Back.Common.Interface;
+using ECommerse.Common.Interface;
 
-namespace Back.Common.Logic
+namespace ECommerse.Common.Logic
 {
     public class ProductService : IProductService
     {

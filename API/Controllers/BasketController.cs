@@ -1,10 +1,10 @@
-using Back.Core.Entities;
-using Back.Infrastracture.Interface;
-using Back.Common.Interface;
+using ECommerse.Core.Entities;
+using ECommerse.Infrastracture.Interface;
+using ECommerse.Common.Interface;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Back.API.Controllers
+namespace ECommerse.API.Controllers
 {
     public class BasketController : BaseApiController
     {

@@ -1,10 +1,11 @@
 ﻿using System.Linq.Expressions;
-using Back.Core.Entities;
-using Back.Infrastracture.Data;
-using Back.Infrastracture.Interface;
+using ECommerse.Infrastracture.Data;
+using ECommerse.Core.Entities;
+using ECommerse.Infrastracture.Data;
+using ECommerse.Infrastracture.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace Back.Infrastracture.Logic
+namespace ECommerse.Infrastracture.Logic
 {
     public class GenaricRepository<T> : IGenaricRepository<T> where T : BaseEntity
     {

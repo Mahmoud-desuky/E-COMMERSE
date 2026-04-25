@@ -227,11 +227,11 @@ orleans.codegen.cs
 # RIA/Silverlight projects
 Generated_Code/
 
-# Backup & report files from converting an old project file
-# to a newer Visual Studio version. Backup files are not needed,
+# ECommerseup & report files from converting an old project file
+# to a newer Visual Studio version. ECommerseup files are not needed,
 # because we have git ;-)
 _UpgradeReport_Files/
-Backup*/
+ECommerseup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 CordovaApp.projitems
@@ -342,8 +342,8 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-# Backup folder for Package Reference Convert tool in Visual Studio 2017
-MigrationBackup/
+# ECommerseup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationECommerseup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/

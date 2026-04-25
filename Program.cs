@@ -1,18 +1,18 @@
 using System.Reflection;
-using Back.API.Extensions;
-using Back.API.Middleware;
-using Back.Infrastracture.Data;
-using Back.Infrastracture.Interface;
-using Back.Infrastracture.Logic;
-using Back.Infrastructure.Identity;
-using Back.Common.Interface;
-using Back.Common.Logic;
+using ECommerse.API.Extensions;
+using ECommerse.API.Middleware;
+using ECommerse.Infrastracture.Data;
+using ECommerse.Infrastracture.Interface;
+using ECommerse.Infrastracture.Logic;
+using ECommerse.Infrastructure.Identity;
+using ECommerse.Common.Interface;
+using ECommerse.Common.Logic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
-using Back.Core.Entities.Identity;
+using ECommerse.Core.Entities.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IBasketRepository, BasketRepository>();
@@ -28,8 +28,8 @@ builder.Services.AddDbContext<StoreContext>(x=>
 
 // Add Identity
 
-builder.Services.AddDbContext<ApplicationIdentityDbContext>(x=>
-   x.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
+builder.Services.AddDbContext<ApplicationIdentityDbContext>(x =>
+    x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
 {

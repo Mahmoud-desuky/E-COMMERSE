@@ -1,6 +1,6 @@
-using Back.Core.Entities.Identity;
+using ECommerse.Core.Entities.Identity;
 
-namespace Back.Infrastracture.Interface
+namespace ECommerse.Infrastracture.Interface
 {
     public interface ITokenService
     {

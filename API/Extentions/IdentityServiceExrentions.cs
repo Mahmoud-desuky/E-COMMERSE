@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity;
-using Back.Core.Entities.Identity;
-using Back.Infrastructure.Identity;
+using ECommerse.Core.Entities.Identity;
+using ECommerse.Infrastructure.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-namespace Back.API.Extensions
+namespace ECommerse.API.Extensions
 {
     public static class IdentityServiceExtensions
     {

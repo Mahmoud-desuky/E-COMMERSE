@@ -1,7 +1,7 @@
-using Back.API.Errors;
+using ECommerse.API.Errors;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Back.API.Controllers
+namespace ECommerse.API.Controllers
 {
     [Route("errors/{code}")]
     [ApiExplorerSettings(IgnoreApi =true)]

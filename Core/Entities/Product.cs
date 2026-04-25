@@ -1,4 +1,4 @@
-﻿namespace Back.Core.Entities
+﻿namespace ECommerse.Core.Entities
 {
     public class Product : BaseEntity
     {

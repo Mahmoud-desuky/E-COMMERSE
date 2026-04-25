@@ -2,35 +2,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: E-COMMERSE Debug",
-            "type": "dotnet",
+            "name": "C#: ECommerse Debug",
+            "type": "coreclr",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/E-COMMERSE/Properties/launchSettings.json"
-        },
-        {
-            "type": "DotNetAutoAttach",
-            "request": "launch",
-            "name": ".NET Core Watch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/ECommerse/bin/Debug/net8.0/ECommerse.dll",
             "args": [],
+            "cwd": "${workspaceFolder}/ECommerse",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
-        },
-        {
-            "name": ".Net Core Launch (web)",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
-        },
-        {
-        "commandName": "Project",
-        "dotnetRunMessages": true,
-        "launchBrowser": true,
-        "launchUrl": "swagger",
-        "applicationUrl": "https://localhost:7039;http://localhost:5135",
-        "environmentVariables": {
-            "ASPNETCORE_ENVIRONMENT": "Development"
-        }
         }
     ]
 }

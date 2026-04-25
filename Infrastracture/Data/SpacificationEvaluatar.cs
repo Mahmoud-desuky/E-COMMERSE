@@ -1,8 +1,8 @@
 using System.Linq;
-using Back.Core.Entities;
+using ECommerse.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Back.Infrastracture.Data
+namespace ECommerse.Infrastracture.Data
 {
     public class SpacificationEvaluatar<T> where T : BaseEntity
     {
