@@ -1,6 +1,6 @@
 using Microsoft.OpenApi.Models;
 
-namespace Back.API.Extections
+namespace ECommerse.API.Extections
 {
     public static class SwaggerServiceExtentions
     {

@@ -1,23 +1,21 @@
 using System.Reflection;
-using Back.API.Extensions;
-using Back.API.Middleware;
-using Back.Core.Entities;
-using Back.Infrastracture.Data;
-using Back.Infrastracture.Interface;
-using Back.Infrastracture.Logic;
-using Back.Infrastructure.Identity;
-using Back.Common.Interface;
-using Back.Common.Logic;
+using ECommerse.API.Extensions;
+using ECommerse.API.Middleware;
+using ECommerse.Infrastracture.Data;
+using ECommerse.Infrastracture.Interface;
+using ECommerse.Infrastracture.Logic;
+using ECommerse.Infrastructure.Identity;
+using ECommerse.Common.Interface;
+using ECommerse.Common.Logic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
-
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Identity;
+using ECommerse.Core.Entities.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IBasketRepository, BasketRepository>();
-
-
 
 
 // Add Scope of GenaricRepository
@@ -26,16 +24,20 @@ builder.Services.AddScoped(typeof(IGenaricRepository<>),typeof(GenaricRepository
 
 // Add services to the container.
 builder.Services.AddDbContext<StoreContext>(x=>
- x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDbContext<ApplicationIdentityDbContext>(x=>
-   x.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
+// Add Identity
+
+builder.Services.AddDbContext<ApplicationIdentityDbContext>(x =>
+    x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
 {
    var Configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
    return ConnectionMultiplexer.Connect(Configuration);
 });
+builder.Services.AddScoped<UserManager<User>>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Back.API.Controllers
+namespace ECommerse.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

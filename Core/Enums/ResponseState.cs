@@ -1,4 +1,4 @@
-namespace Back.Core.Enums
+namespace ECommerse.Core.Enums
 {
     public enum ResponseState
     {

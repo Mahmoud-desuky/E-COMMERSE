@@ -1,4 +1,4 @@
-namespace Back.Core.Entities.Identity
+namespace ECommerse.Core.Entities.Identity
 {
     public class Address
     {
@@ -9,8 +9,8 @@ namespace Back.Core.Entities.Identity
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
-        public string UserId { get; set; }
-        public User user {get; set; }
+        public int UserId { get; set; }
+        public User User {get; set; }
 
     }
 }

@@ -1,11 +1,11 @@
-using Back.Common.Interface;
-using Back.Common.Logic;
-using Back.Infrastracture.Interface;
-using Back.Infrastracture.Logic;
+using ECommerse.Common.Interface;
+using ECommerse.Common.Logic;
+using ECommerse.Infrastracture.Interface;
+using ECommerse.Infrastracture.Logic;
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace Back.API.Extections
+namespace ECommerse.API.Extections
 {
     public static class ApplicationServiceExtentions
     {
@@ -13,7 +13,7 @@ namespace Back.API.Extections
         {
             services.AddScoped<IBasketRepository,BasketRepository>();
             services.AddScoped(typeof(IGenaricRepository<>),typeof(GenaricRepository<>));
-
+            
             services.Configure<ApiBehaviorOptions>(options=>
             {
                /* options.InvalidModelStateResponseFactory=actionContext =>

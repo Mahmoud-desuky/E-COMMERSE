@@ -1,30 +1,22 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: <project-name> Debug",
-            "type": "dotnet",
+            "name": "C#: ECommerse Debug",
+            "type": "coreclr",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/<relative-path-to-project-folder><project-name>.csproj"
-        },
-        {
-            "type": "DotNetAutoAttach",
-            "request": "launch",
-            "name": ".NET Core Watch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/ECommerse/bin/Debug/net8.0/ECommerse.dll",
             "args": [],
+            "cwd": "${workspaceFolder}/ECommerse",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
-        },
-        {
-            "name": ".Net Core Launch (web)",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
         }
-
     ]
 }

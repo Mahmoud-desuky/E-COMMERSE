@@ -1,8 +1,8 @@
 using AutoMapper;
-using Back.Common.DTOs;
-using Back.Core.Entities;
+using ECommerse.Common.DTOs;
+using ECommerse.Core.Entities;
 
-namespace Back.API.Helpers
+namespace ECommerse.API.Helpers
 {
     public class ProductUrlResolver : IValueResolver<Product, ProductDTO, string>
     {
