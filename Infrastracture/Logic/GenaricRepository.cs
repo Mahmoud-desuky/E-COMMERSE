@@ -65,9 +65,19 @@ namespace ECommerse.Infrastracture.Logic
             return true;
         }
 
-        public Task<T> Update(T entity)
+        public async Task<T> Update(T entity)
         {
-            throw new NotImplementedException();
+            var exist = _dbSet.Find(entity.Id);
+            if (exist == null)
+                return null;
+            _context.Entry(exist).CurrentValues.SetValues(entity);
+            return entity;
+        }
+        public async Task<T> AddAsync(T entity)
+        {
+            await _dbSet.AddAsync(entity);
+            _context.SaveChanges();
+            return entity;
         }
 
     }

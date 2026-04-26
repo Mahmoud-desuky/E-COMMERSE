@@ -13,6 +13,7 @@ namespace ECommerse.Infrastracture.Interface
         Task<IReadOnlyList<T>> ListAsync(ISpacification<T> spec);
         Task<bool> Delete(int id);
         Task<T> Update(T entity);
+        Task<T> AddAsync(T entity);
         
     }
 }

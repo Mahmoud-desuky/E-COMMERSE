@@ -11,10 +11,34 @@ namespace ECommerse.Infrastracture.Logic
     {
         private readonly IConfiguration _config;
         private readonly SymmetricSecurityKey _key;
+
+        private static string GetRequiredNonEmptyConfigValue(IConfiguration config, string key)
+        {
+            if (config is IConfigurationRoot root)
+            {
+                foreach (var provider in root.Providers.Reverse())
+                {
+                    if (provider.TryGet(key, out var value) && !string.IsNullOrWhiteSpace(value))
+                    {
+                        return value;
+                    }
+                }
+            }
+
+            var fallback = config[key];
+            if (!string.IsNullOrWhiteSpace(fallback))
+            {
+                return fallback;
+            }
+
+            throw new InvalidOperationException($"Required configuration value '{key}' is missing or empty.");
+        }
+
         public TokenService(IConfiguration config)
         {
             _config = config;
-            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Token:Key"]));
+            var tokenKey = GetRequiredNonEmptyConfigValue(_config, "Token:Key");
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey));
         }
         public string CreateteToken(User user)
         {
@@ -32,7 +56,7 @@ namespace ECommerse.Infrastracture.Logic
                 Subject = new ClaimsIdentity(Claims),
                 Expires = DateTime.Now.AddDays(7),
                 SigningCredentials = credintionals,
-                Issuer = _config["Token:Issuer"],
+                Issuer = GetRequiredNonEmptyConfigValue(_config, "Token:Issuer"),
                 Audience = _config["Token:Audience"],
             };
             var tokenHandler=new JwtSecurityTokenHandler();

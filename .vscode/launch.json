@@ -2,14 +2,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: ECommerse Debug",
+            "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/ECommerse/bin/Debug/net8.0/ECommerse.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/ECommerse",
+            "program": "${workspaceFolder}/bin/Debug/net8.0/ECommerse.dll",
+            "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": ".NET Core Launch (web, Release, no Just My Code)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/Release/net8.0/ECommerse.dll",
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "justMyCode": false,
             "serverReadyAction": {
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
