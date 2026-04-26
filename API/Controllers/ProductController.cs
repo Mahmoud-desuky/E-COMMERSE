@@ -9,9 +9,9 @@ namespace ECommerse.API.Controllers
     {
         private readonly IGenaricRepository<Product> _productRepository;
         public ProductController(IGenaricRepository<Product> productRepository)
-        {
+            {
             _productRepository = productRepository;
-        }
+            }
         [HttpGet("id")]
         public async Task<IActionResult> GetById (int Id)
         {
@@ -21,6 +21,11 @@ namespace ECommerse.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _productRepository.GetAllAsync().ToListAsync());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] Product product)
+        {
+            return Ok(await _productRepository.AddAsync(product));
         }
 
     }

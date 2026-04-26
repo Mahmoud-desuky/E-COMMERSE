@@ -16,6 +16,7 @@ using ECommerse.Core.Entities.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IBasketRepository, BasketRepository>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 
 // Add Scope of GenaricRepository

@@ -59,7 +59,7 @@ namespace ECommerse.Migrations.ApplicationIdentityDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("ECommerse.Core.Entities.Identity.User", b =>
